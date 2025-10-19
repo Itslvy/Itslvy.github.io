@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Website resmi komunitas pendaki Elvone.Word untuk Kelas XI.1, berisi struktur organisasi, pengumuman, jadwal, dan galeri foto.">
+  <title>FAMS JINGGALA ROBLOX</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+  * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+      background: #0d1117;
+      color: #dbe4f3;
+  }
+
+  /* ===== NAVBAR ===== */
+  nav {
+      width: 100%;
+      backdrop-filter: blur(10px);
+      background: rgba(20, 24, 36, 0.8);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 80px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: #ffffff;
+      text-decoration: none;
+  }
+
+  .logo img {
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+  }
+
+  .logo span { color: #94a3ff; }
+
+  .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 35px;
+  }
+
+  .nav-links a {
+      text-decoration: none;
+      color: #e4e8ff;
+      font-weight: 500;
+      transition: 0.3s;
+      position: relative;
+  }
+
+  .nav-links a::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: #94a3ff;
+      transition: 0.3s ease;
+  }
+
+  .nav-links a:hover::after { width: 100%; }
+  .nav-links a:hover { color: #94a3ff; }
+
+  .admin-btn {
+      background: linear-gradient(90deg, #6c63ff, #4f46e5);
+      border: none;
+      color: white;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 0 8px rgba(108, 99, 255, 0.5);
+  }
+
+  .admin-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(108, 99, 255, 0.8);
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: linear-gradient(180deg, #0d1117 0%, #161b22 100%);
+      padding: 0 20px;
+  }
+
+  .hero-text h1 {
+      font-size: 2.6rem;
+      margin-bottom: 10px;
+  }
+
+  .hero-text span { color: #94a3ff; }
+
+  .hero-text p {
+      font-size: 1rem;
+      max-width: 600px;
+      line-height: 1.6;
+      margin: 0 auto;
+      color: #cdd4eb;
+  }
+
+  /* ===== CONTENT ===== */
+  .content {
+      padding: 120px 60px;
+      text-align: center;
+  }
+
+  .title {
+      font-size: 1.8rem;
+      color: #94a3ff;
+      margin-bottom: 40px;
+  }
+
+  /* ===== STRUKTUR ===== */
+  #struktur {
+      padding: 120px 60px;
+      background: #0d1117;
+      color: #fff;
+      text-align: center;
+  }
+
+  .structure-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 60px;
+  }
+
+  .structure-level {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+  }
+
+  .structure-item {
+      background: #1b1f2a;
+      border: 2px solid #94a3ff;
+      border-radius: 12px;
+      padding: 20px 30px;
+      width: 200px;
+      transition: 0.3s;
+      box-shadow: 0 0 10px rgba(148,163,255,0.3);
+  }
+
+  .structure-item:hover {
+      transform: translateY(-6px);
+      background: #94a3ff;
+      color: #0d1117;
+      box-shadow: 0 0 15px #94a3ff;
+  }
+
+  .structure-role {
+      font-weight: 700;
+      color: #94a3ff;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+  }
+
+  .structure-name { color: #fff; font-size: 0.95rem; }
+
+  /* ===== PENGUMUMAN ===== */
+  #schedule {
+      padding: 100px 60px;
+      background: #111622;
+      text-align: center;
+  }
+
+  .schedule-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+  }
+
+  .schedule-card {
+      background: #1b1f2a;
+      border: 2px solid #94a3ff;
+      border-radius: 12px;
+      padding: 25px 30px;
+      width: 100%;
+      max-width: 800px;
+      text-align: left;
+      box-shadow: 0 0 10px rgba(148,163,255,0.3);
+  }
+
+  .schedule-card h3 {
+      color: #94a3ff;
+      margin: 20px 0 10px;
+  }
+
+  .schedule-card ul {
+      margin-left: 20px;
+      line-height: 1.7;
+  }
+
+  /* ===== GALERI ===== */
+  .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+  }
+
+  .card {
+      overflow: hidden;
+      border-radius: 14px;
+  }
+
+  .card img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      border-radius: 14px;
+      transition: 0.3s;
+  }
+
+  .card img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(148,163,255,0.7);
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+      background: linear-gradient(180deg, #0b0f16 0%, #05080f 100%);
+      color: #dbe4f3;
+      padding: 80px 100px 40px;
+  }
+
+  .footer-container {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+  }
+
+  .footer-logo {
+      font-size: 28px;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+  }
+
+  .footer-logo span { color: #94a3ff; }
+
+  .footer-links h3 {
+      color: #94a3ff;
+      margin-bottom: 18px;
+  }
+
+  .footer-links ul {
+      list-style: none;
+      padding-left: 0;
+  }
+
+  .footer-links a {
+      color: #dbe4f3;
+      text-decoration: none;
+      transition: 0.3s;
+  }
+
+  .footer-links a:hover { color: #94a3ff; }
+
+  .social-links {
+      margin-top: 20px;
+  }
+
+  .social-links a {
+      color: #94a3ff;
+      font-size: 1.4rem;
+      margin-right: 18px;
+      transition: 0.3s;
+  }
+
+  .social-links a:hover {
+      color: #fff;
+      text-shadow: 0 0 8px #94a3ff;
+  }
+
+  .copyright {
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 25px;
+      font-size: 0.9rem;
+      color: #999;
+      margin-top: 60px;
+  }
+
+  @media (max-width: 900px) {
+      nav { padding: 14px 30px; flex-direction: column; gap: 10px; }
+      footer { padding: 60px 40px; }
+      .footer-container { grid-template-columns: 1fr; text-align: center; }
+  }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav>
+    <a href="#home" class="logo">
+      <img src="logo.jpg" alt="Logo MT JINGGALA">
+      <span>MT .</span><span style="color:#fff">JINGGALA</span>
+    </a>
+    <div class="nav-links">
+      <a href="#home">Beranda</a>
+      <a href="#struktur">Struktur</a>
+      <a href="#schedule">Jadwal</a>
+      <a href="#galeri">Galeri</a>
+      <a href="#kontak">Kontak</a>
+      <button class="admin-btn">Admin</button>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="home">
+    <div class="hero-text">
+      <h1>Selamat Datang di <span>MT . Jinggala</span></h1>
+      <p>Selamat datang di dunia petualangan Pendakian Gunung Jinggala Roblox! Bersiaplah menjelajahi puncak-puncak menantang, 
+         menjalin persahabatan, dan merasakan sensasi mendaki yang seru bersama komunitas kami. Ayo, mulai perjalananmu sekarang!</p>
+    </div>
+  </section>
+
+  <!-- ===== STRUKTUR ORGANISASI ===== -->
+  <section id="struktur">
+    <h2 class="title">Struktur Pengurus Server</h2>
+    <div class="structure-container">
+      <div class="structure-level">
+        <div class="structure-item">
+          <div class="structure-role">Owner Server</div>
+          <div class="structure-name">-</div>
+        </div>
+      </div>
+
+      <div class="structure-level">
+        <div class="structure-item">
+          <div class="structure-role">Head Admin</div>
+          <div class="structure-name">-</div>
+        </div>
+        <div class="structure-item">
+          <div class="structure-role">Vice Admin</div>
+          <div class="structure-name">-</div>
+        </div>
+      </div>
+
+      <div class="structure-level">
+        <div class="structure-item">
+          <div class="structure-role">Admin 1</div>
+          <div class="structure-name">-</div>
+        </div>
+        <div class="structure-item">
+          <div class="structure-role">Admin 2</div>
+          <div class="structure-name">-</div>
+        </div>
+        <div class="structure-item">
+          <div class="structure-role">Vice Admin 1</div>
+          <div class="structure-name">-</div>
+        </div>
+        <div class="structure-item">
+          <div class="structure-role">Vice Admin 2</div>
+          <div class="structure-name">-</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PENGUMUMAN & UPDATE ===== -->
+  <section id="schedule">
+    <h2 class="title">Pengumuman Informasi Seputar Update</h2>
+    <div class="schedule-container">
+      <div class="schedule-card">
+        <h3><i class="fas fa-calendar-alt"></i> Title Summit Pendakian</h3>
+        <ul>
+          <li>🥾 Pendaki Pemula — 0 summit</li>
+          <li>🌄 Penjelajah Rute — 5+ summit</li>
+          <li>🏕️ Penakluk Perkemahan — 15+ summit</li>
+          <li>⛰️ Pendaki Gunung — 30+ summit</li>
+          <li>🧭 Pemandu Jalur — 50+ summit</li>
+          <li>🗻 Penjelajah Puncak — 80+ summit</li>
+          <li>🏔️ Penakluk Puncak — 120+ summit</li>
+          <li>🧗 Ahli Pendakian — 200+ summit</li>
+          <li>🌿 Penjaga Hutan — 300+ summit</li>
+          <li>🏔️ Legenda Puncak — 500+ summit</li>
+          <li>🌌 Penjelajah Dunia — 800+ summit</li>
+          <li>🌟 Pendaki Legendaris — 1500+ summit</li>
+          <li>🐉 Dragon Lord — 2000+ summit</li>
+          <li>🔱 Eternal Wanderer — 2500+ summit</li>
+          <li>⚡ Stormbringer — 3000+ summit</li>
+          <li>👑 Highlord of Peaks — 3500+ summit</li>
+          <li>⚔️ Eternal Guardian — 4000+ summit</li>
+          <li>🔥 Myth Slayer — 4500+ summit</li>
+          <li>🌠 Celestial Conqueror — 5000+ summit</li>
+        </ul>
+      </div>
+
+      <section id="schedule">
+        <h2 class="title">Patch Terbaru</h2>
+    
+        <div class="schedule-container">
+          <div class="schedule-card">
+            <h3>🆕 Penambahan:</h3>
+            <ul>
+              <li>💪 Max carry ditingkatkan dari 8 → 15</li>
+              <li>🌅 Menambahkan mode Night & Sunset (admin only)</li>
+              <li>⚙️ Memperbaiki loading screen dan mempercepat waktu masuk ke game</li>
+            </ul>
+    
+            <h3>🗑️ Penghapusan:</h3>
+            <ul>
+              <li>❌ Stamina & health bar</li>
+              <li>🧰 Menghapus bug fling saat carry player</li>
+            </ul>
+    
+            <h3>⚙️ Sistem & Mekanika</h3>
+            <ul>
+              <li>🌀 Menggantikan sistem CanTouchD dengan teleport otomatis ke checkpoint saat pemain terjatuh di rintangan.</li>
+              <li>🛡️ Menghilangkan bug damage berlebih saat jatuh dari ketinggian normal.</li>
+              <li>🖥️ GUI diperbarui agar lebih responsif dan kompatibel di semua perangkat.</li>
+              <li>🧠 Menambahkan tombol Head All GUI untuk kemudahan kontrol antarmuka.</li>
+              <li>⚡ Memperbaiki Shift Lock pada tombol Sprint agar lebih halus dan stabil.</li>
+            </ul>
+    
+            <h3>🏔️ Update Jalur Pendakian</h3>
+            <ul>
+              <li>💧 Menambahkan jalur sungai baru yang mengalir di bawah kaki Gunung Jinggala.</li>
+              <li>🌿 Menambahkan beberapa elemen hangout di area bawah puncak</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+  <!-- ===== GALERI ===== -->
+  <section id="galeri" class="content">
+    <h2 class="title">Album Jinggala</h2>
+    <div class="gallery">
+      <div class="card">
+        <img src="Jinggala (1).png" alt="Foto pendakian 1" />
+      </div>
+      <div class="card">
+        <img src="Jinggala (2).png" alt="Foto pendakian 2" />
+      </div>
+      <div class="card">
+        <img src="Jinggala (3).png" alt="Foto pendakian 3" />
+      </div>
+      <div class="card">
+        <img src="Jinggala (4).png" alt="Foto pendakian 4" />
+      </div>
+      <div class="card">
+        <img src="Jinggala (5).png" alt="Foto pendakian 5" />
+      </div>
+      <div class="card">
+        <img src="Jinggala (6).png" alt="Foto pendakian 6" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer id="kontak">
+    <div class="footer-container">
+      <div>
+        <a href="#home" class="footer-logo">
+          <span>MT . </span><span style="color:#fff">JINGGALA</span>
+        </a>
+        <p>"Takut akan Tuhan adalah permulaan pengetahuan"</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <h3>Menu</h3>
+        <ul>
+          <li><a href="#home">Beranda</a></li>
+          <li><a href="#struktur">Struktur</a></li>
+          <li><a href="#schedule">Jadwal</a></li>
+          <li><a href="#galeri">Galeri</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h3>Kontak</h3>
+        <ul>
+          <li>Email: elvone.word@example.com</li>
+          <li>Telepon: +62 812 3456 7890</li>
+          <li>Alamat: Jl. Pendaki No. 1, Bandung</li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">
+      &copy; 2025 MT . JINGGALA - IT Team.Project. All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>
